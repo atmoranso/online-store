@@ -21,7 +21,7 @@ const baseConfig = {
             { test: /\.ts$/i, use: 'ts-loader' },
             {
                 test: /\.svg$/i,
-                type: 'asset/source',
+                type: 'asset/resource',
             },
         ],
     },
@@ -39,12 +39,12 @@ const baseConfig = {
             filename: 'index.html',
         }),
         new MiniCssExtractPlugin({
-            filename: 'EssentialPlugin.css',
+            filename: 'style.css',
         }),
         new EslintPlugin({ extensions: 'ts' }),
-        // new CopyPlugin({
-        //     patterns: [{ from: './src/assets', to: './assets' }],
-        // }),
+        new CopyPlugin({
+            patterns: [{ from: './src/assets/', to: './assets/' }],
+        }),
     ],
 };
 

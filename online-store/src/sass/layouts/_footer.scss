@@ -1,1 +1,30 @@
-// footer
+.footer {
+    width: 100%;
+    background-color: $color-bg-light;
+    box-shadow: 0px 0px 7px 1px rgb(0 0 0 / 39%);
+}
+.footer__container {
+    height: 100px;
+    padding: 10px;
+    @include flexRow(space-between, center);
+}
+.footer__link {
+    img {
+        width: 120px;
+        filter: invert(11%) sepia(23%) saturate(41%) hue-rotate(314deg) brightness(100%) contrast(84%);
+        &:hover {
+            filter: invert(42%) sepia(8%) saturate(2630%) hue-rotate(167deg) brightness(95%) contrast(86%);
+        }
+    }
+}
+.footer__year {
+    @include font(40px, $color-dark, bold);
+}
+.footer__github {
+    img {
+        filter: invert(11%) sepia(23%) saturate(41%) hue-rotate(314deg) brightness(100%) contrast(84%);
+        &:hover {
+            filter: invert(42%) sepia(8%) saturate(2630%) hue-rotate(167deg) brightness(95%) contrast(86%);
+        }
+    }
+}

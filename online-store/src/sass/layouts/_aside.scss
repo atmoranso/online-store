@@ -1,0 +1,7 @@
+.aside {
+    width: 250px;
+    min-height: calc(100vh - 250px);
+    padding: 5px;
+    @include flexColumn;
+    box-shadow: 1px 3px 3px -1px rgb(0 0 0 / 39%);
+}

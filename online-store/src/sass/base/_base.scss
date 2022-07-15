@@ -1,5 +1,6 @@
 * {
     box-sizing: border-box;
+    font-family: "Open Sans";
 }
 :active,
 :hover,
@@ -9,4 +10,10 @@
 }
 body {
     margin: 0;
+    @include font(16px, $color-dark);
+}
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
 }

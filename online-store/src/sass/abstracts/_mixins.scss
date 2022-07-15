@@ -18,12 +18,9 @@
         align-items: $align;
     }
 }
-@mixin font($size: null, $family: null, $weight: null, $height: null, $color: null) {
+@mixin font($size: null, $color: null, $weight: null, $height: null) {
     @if $size {
         font-size: $size;
-    }
-    @if $family {
-        font-family: $family;
     }
     @if $weight {
         font-weight: $weight;
@@ -33,20 +30,5 @@
     }
     @if $color {
         color: $color;
-    }
-}
-@mixin font-source-sans($size: null, $color: null, $weight: null, $lh: false) {
-    font-family: "Source Sans Pro", Helvetica, Arial, sans-serif;
-    @if $size {
-        font-size: $size;
-    }
-    @if $color {
-        color: $color;
-    }
-    @if $weight {
-        font-weight: $weight;
-    }
-    @if $lh {
-        line-height: $lh;
     }
 }

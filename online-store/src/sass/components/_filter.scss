@@ -1,0 +1,14 @@
+.filter_popular {
+    @include flexRow(flex-start, center);
+    gap: 5px;
+    .filter__item {
+        width: 22px;
+        height: 22px;
+        background: url("../assets/svg/checkbox-blank.svg") no-repeat;
+        background-size: cover;
+        &:hover {
+            background: url("../assets/svg/checkbox.svg") no-repeat;
+            background-size: cover;
+        }
+    }
+}
