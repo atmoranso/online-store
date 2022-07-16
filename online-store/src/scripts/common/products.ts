@@ -1,4 +1,4 @@
-import { Favorites, Products } from './types';
+import { Popular, Products } from './types';
 
 export const products: Products = [
     {
@@ -9,7 +9,7 @@ export const products: Products = [
         year: 2020,
         memory: 8,
         hdd: 512,
-        favorite: Favorites.Yes,
+        popular: Popular.Yes,
     },
     {
         id: 2,
@@ -19,7 +19,7 @@ export const products: Products = [
         year: 2021,
         memory: 16,
         hdd: 1024,
-        favorite: Favorites.No,
+        popular: Popular.No,
     },
     {
         id: 3,
@@ -29,7 +29,7 @@ export const products: Products = [
         year: 2019,
         memory: 32,
         hdd: 1024,
-        favorite: Favorites.No,
+        popular: Popular.No,
     },
     {
         id: 4,
@@ -39,7 +39,7 @@ export const products: Products = [
         year: 2018,
         memory: 8,
         hdd: 512,
-        favorite: Favorites.No,
+        popular: Popular.No,
     },
     {
         id: 5,
@@ -49,7 +49,7 @@ export const products: Products = [
         year: 2020,
         memory: 16,
         hdd: 256,
-        favorite: Favorites.No,
+        popular: Popular.No,
     },
     {
         id: 6,
@@ -59,7 +59,7 @@ export const products: Products = [
         year: 2021,
         memory: 8,
         hdd: 512,
-        favorite: Favorites.Yes,
+        popular: Popular.Yes,
     },
     {
         id: 7,
@@ -69,7 +69,7 @@ export const products: Products = [
         year: 2020,
         memory: 16,
         hdd: 1024,
-        favorite: Favorites.No,
+        popular: Popular.No,
     },
 
     {
@@ -80,7 +80,7 @@ export const products: Products = [
         year: 2020,
         memory: 8,
         hdd: 256,
-        favorite: Favorites.No,
+        popular: Popular.No,
     },
     {
         id: 9,
@@ -90,7 +90,7 @@ export const products: Products = [
         year: 2020,
         memory: 32,
         hdd: 1024,
-        favorite: Favorites.No,
+        popular: Popular.No,
     },
     {
         id: 10,
@@ -100,7 +100,7 @@ export const products: Products = [
         year: 2022,
         memory: 8,
         hdd: 256,
-        favorite: Favorites.No,
+        popular: Popular.No,
     },
     {
         id: 11,
@@ -110,7 +110,7 @@ export const products: Products = [
         year: 2021,
         memory: 32,
         hdd: 1024,
-        favorite: Favorites.Yes,
+        popular: Popular.Yes,
     },
     {
         id: 12,
@@ -120,7 +120,7 @@ export const products: Products = [
         year: 2017,
         memory: 8,
         hdd: 256,
-        favorite: Favorites.No,
+        popular: Popular.No,
     },
     {
         id: 13,
@@ -130,7 +130,7 @@ export const products: Products = [
         year: 2022,
         memory: 32,
         hdd: 1024,
-        favorite: Favorites.No,
+        popular: Popular.No,
     },
 
     {
@@ -141,7 +141,7 @@ export const products: Products = [
         year: 2022,
         memory: 32,
         hdd: 1024,
-        favorite: Favorites.No,
+        popular: Popular.No,
     },
     {
         id: 15,
@@ -151,7 +151,7 @@ export const products: Products = [
         year: 2020,
         memory: 16,
         hdd: 512,
-        favorite: Favorites.Yes,
+        popular: Popular.Yes,
     },
     {
         id: 16,
@@ -161,7 +161,7 @@ export const products: Products = [
         year: 2022,
         memory: 16,
         hdd: 512,
-        favorite: Favorites.Yes,
+        popular: Popular.Yes,
     },
     {
         id: 17,
@@ -171,7 +171,7 @@ export const products: Products = [
         year: 2022,
         memory: 16,
         hdd: 512,
-        favorite: Favorites.Yes,
+        popular: Popular.Yes,
     },
     {
         id: 18,
@@ -181,7 +181,7 @@ export const products: Products = [
         year: 2022,
         memory: 16,
         hdd: 1024,
-        favorite: Favorites.Yes,
+        popular: Popular.Yes,
     },
     {
         id: 19,
@@ -191,7 +191,7 @@ export const products: Products = [
         year: 2022,
         memory: 16,
         hdd: 1024,
-        favorite: Favorites.No,
+        popular: Popular.No,
     },
     {
         id: 20,
@@ -201,7 +201,7 @@ export const products: Products = [
         year: 2019,
         memory: 16,
         hdd: 256,
-        favorite: Favorites.No,
+        popular: Popular.No,
     },
     {
         id: 21,
@@ -211,7 +211,7 @@ export const products: Products = [
         year: 2017,
         memory: 16,
         hdd: 512,
-        favorite: Favorites.No,
+        popular: Popular.No,
     },
     {
         id: 22,
@@ -221,7 +221,7 @@ export const products: Products = [
         year: 2020,
         memory: 8,
         hdd: 512,
-        favorite: Favorites.No,
+        popular: Popular.No,
     },
     {
         id: 23,
@@ -231,7 +231,7 @@ export const products: Products = [
         year: 2022,
         memory: 16,
         hdd: 1024,
-        favorite: Favorites.Yes,
+        popular: Popular.Yes,
     },
     {
         id: 24,
@@ -241,6 +241,6 @@ export const products: Products = [
         year: 2021,
         memory: 32,
         hdd: 1024,
-        favorite: Favorites.No,
+        popular: Popular.No,
     },
 ];

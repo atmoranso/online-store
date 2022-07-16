@@ -2,12 +2,27 @@
     max-width: 290px;
     padding: 5px 5px 10px 5px;
     margin-bottom: 50px;
+    position: relative;
     box-shadow: 7px 0px 9px -10px rgb(0 0 0 / 66%);
     transition: 0.3s;
     &:hover {
         cursor: pointer;
         border-bottom-right-radius: 15px;
         box-shadow: 6px 6px 10px -2px rgb(0 0 0 / 39%);
+        .card__cart {
+            img {
+                opacity: 1;
+                filter: invert(42%) sepia(8%) saturate(2630%) hue-rotate(167deg) brightness(95%) contrast(86%);
+            }
+        }
+    }
+    &.in-cart {
+        .card__cart {
+            img {
+                opacity: 1;
+                filter: invert(42%) sepia(8%) saturate(2630%) hue-rotate(167deg) brightness(95%) contrast(86%);
+            }
+        }
     }
 }
 .card__title {
@@ -18,4 +33,16 @@
 .card__img {
     width: 280px;
     height: auto;
+}
+.card__cart {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    img {
+        width: 48px;
+        height: auto;
+        opacity: 0.2;
+        transition: 0.3s;
+        filter: invert(11%) sepia(23%) saturate(41%) hue-rotate(314deg) brightness(7%) contrast(28%);
+    }
 }

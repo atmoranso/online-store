@@ -1,14 +1,33 @@
+.filter__item {
+    &:hover {
+        color: $color-accent;
+        font-weight: 700;
+        cursor: pointer;
+    }
+    &.selected {
+        color: $color-accent;
+        font-weight: 700;
+    }
+}
 .filter_popular {
+    position: relative;
+    top: 1px;
     @include flexRow(flex-start, center);
-    gap: 5px;
+    gap: 10px;
     .filter__item {
-        width: 22px;
-        height: 22px;
-        background: url("../assets/svg/checkbox-blank.svg") no-repeat;
-        background-size: cover;
-        &:hover {
-            background: url("../assets/svg/checkbox.svg") no-repeat;
-            background-size: cover;
+        width: 17px;
+        height: 17px;
+        border: 2px solid $color-accent;
+        border-radius: 50px;
+        transition: 0.3s;
+        &.selected {
+            background-color: $color-accent;
+        }
+    }
+    &:hover {
+        cursor: pointer;
+        .filter__item {
+            background-color: $color-accent;
         }
     }
 }
