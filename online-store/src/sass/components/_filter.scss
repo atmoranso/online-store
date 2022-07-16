@@ -12,3 +12,6 @@
         }
     }
 }
+.filter__title {
+    @include font(18px, $color-dark);
+}

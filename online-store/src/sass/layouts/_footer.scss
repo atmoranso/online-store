@@ -10,6 +10,7 @@
 }
 .footer__link {
     img {
+        transition: 0.3s;
         width: 120px;
         filter: invert(11%) sepia(23%) saturate(41%) hue-rotate(314deg) brightness(100%) contrast(84%);
         &:hover {
@@ -21,7 +22,9 @@
     @include font(40px, $color-dark, bold);
 }
 .footer__github {
+
     img {
+        transition: 0.3s;
         filter: invert(11%) sepia(23%) saturate(41%) hue-rotate(314deg) brightness(100%) contrast(84%);
         &:hover {
             filter: invert(42%) sepia(8%) saturate(2630%) hue-rotate(167deg) brightness(95%) contrast(86%);

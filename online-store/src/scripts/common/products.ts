@@ -1,6 +1,6 @@
-import { Product } from './types';
+import { Favorites, Products } from './types';
 
-const Products: Product[] = [
+export const products: Products = [
     {
         id: 1,
         title: 'Apple MacBook Pro 13"',
@@ -9,7 +9,7 @@ const Products: Product[] = [
         year: 2020,
         memory: 8,
         hdd: 512,
-        favorite: true,
+        favorite: Favorites.Yes,
     },
     {
         id: 2,
@@ -19,7 +19,7 @@ const Products: Product[] = [
         year: 2021,
         memory: 16,
         hdd: 1024,
-        favorite: false,
+        favorite: Favorites.No,
     },
     {
         id: 3,
@@ -29,7 +29,7 @@ const Products: Product[] = [
         year: 2019,
         memory: 32,
         hdd: 1024,
-        favorite: false,
+        favorite: Favorites.No,
     },
     {
         id: 4,
@@ -39,7 +39,7 @@ const Products: Product[] = [
         year: 2018,
         memory: 8,
         hdd: 512,
-        favorite: false,
+        favorite: Favorites.No,
     },
     {
         id: 5,
@@ -49,7 +49,7 @@ const Products: Product[] = [
         year: 2020,
         memory: 16,
         hdd: 256,
-        favorite: false,
+        favorite: Favorites.No,
     },
     {
         id: 6,
@@ -59,7 +59,7 @@ const Products: Product[] = [
         year: 2021,
         memory: 8,
         hdd: 512,
-        favorite: true,
+        favorite: Favorites.Yes,
     },
     {
         id: 7,
@@ -69,7 +69,7 @@ const Products: Product[] = [
         year: 2020,
         memory: 16,
         hdd: 1024,
-        favorite: false,
+        favorite: Favorites.No,
     },
 
     {
@@ -80,7 +80,7 @@ const Products: Product[] = [
         year: 2020,
         memory: 8,
         hdd: 256,
-        favorite: false,
+        favorite: Favorites.No,
     },
     {
         id: 9,
@@ -90,7 +90,7 @@ const Products: Product[] = [
         year: 2020,
         memory: 32,
         hdd: 1024,
-        favorite: false,
+        favorite: Favorites.No,
     },
     {
         id: 10,
@@ -100,7 +100,7 @@ const Products: Product[] = [
         year: 2022,
         memory: 8,
         hdd: 256,
-        favorite: false,
+        favorite: Favorites.No,
     },
     {
         id: 11,
@@ -110,7 +110,7 @@ const Products: Product[] = [
         year: 2021,
         memory: 32,
         hdd: 1024,
-        favorite: true,
+        favorite: Favorites.Yes,
     },
     {
         id: 12,
@@ -120,7 +120,7 @@ const Products: Product[] = [
         year: 2017,
         memory: 8,
         hdd: 256,
-        favorite: false,
+        favorite: Favorites.No,
     },
     {
         id: 13,
@@ -130,7 +130,7 @@ const Products: Product[] = [
         year: 2022,
         memory: 32,
         hdd: 1024,
-        favorite: false,
+        favorite: Favorites.No,
     },
 
     {
@@ -141,7 +141,7 @@ const Products: Product[] = [
         year: 2022,
         memory: 32,
         hdd: 1024,
-        favorite: false,
+        favorite: Favorites.No,
     },
     {
         id: 15,
@@ -151,7 +151,7 @@ const Products: Product[] = [
         year: 2020,
         memory: 16,
         hdd: 512,
-        favorite: true,
+        favorite: Favorites.Yes,
     },
     {
         id: 16,
@@ -161,7 +161,7 @@ const Products: Product[] = [
         year: 2022,
         memory: 16,
         hdd: 512,
-        favorite: true,
+        favorite: Favorites.Yes,
     },
     {
         id: 17,
@@ -171,7 +171,7 @@ const Products: Product[] = [
         year: 2022,
         memory: 16,
         hdd: 512,
-        favorite: true,
+        favorite: Favorites.Yes,
     },
     {
         id: 18,
@@ -181,7 +181,7 @@ const Products: Product[] = [
         year: 2022,
         memory: 16,
         hdd: 1024,
-        favorite: true,
+        favorite: Favorites.Yes,
     },
     {
         id: 19,
@@ -191,7 +191,7 @@ const Products: Product[] = [
         year: 2022,
         memory: 16,
         hdd: 1024,
-        favorite: false,
+        favorite: Favorites.No,
     },
     {
         id: 20,
@@ -201,7 +201,7 @@ const Products: Product[] = [
         year: 2019,
         memory: 16,
         hdd: 256,
-        favorite: false,
+        favorite: Favorites.No,
     },
     {
         id: 21,
@@ -211,7 +211,7 @@ const Products: Product[] = [
         year: 2017,
         memory: 16,
         hdd: 512,
-        favorite: false,
+        favorite: Favorites.No,
     },
     {
         id: 22,
@@ -221,7 +221,7 @@ const Products: Product[] = [
         year: 2020,
         memory: 8,
         hdd: 512,
-        favorite: false,
+        favorite: Favorites.No,
     },
     {
         id: 23,
@@ -231,7 +231,7 @@ const Products: Product[] = [
         year: 2022,
         memory: 16,
         hdd: 1024,
-        favorite: true,
+        favorite: Favorites.Yes,
     },
     {
         id: 24,
@@ -241,6 +241,6 @@ const Products: Product[] = [
         year: 2021,
         memory: 32,
         hdd: 1024,
-        favorite: false,
+        favorite: Favorites.No,
     },
 ];

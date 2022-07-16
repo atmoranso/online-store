@@ -1,0 +1,21 @@
+.card {
+    max-width: 290px;
+    padding: 5px 5px 10px 5px;
+    margin-bottom: 50px;
+    box-shadow: 7px 0px 9px -10px rgb(0 0 0 / 66%);
+    transition: 0.3s;
+    &:hover {
+        cursor: pointer;
+        border-bottom-right-radius: 15px;
+        box-shadow: 6px 6px 10px -2px rgb(0 0 0 / 39%);
+    }
+}
+.card__title {
+    margin: 0 0 5px 0;
+    @include font(18px, $color-accent);
+    text-align: center;
+}
+.card__img {
+    width: 280px;
+    height: auto;
+}
