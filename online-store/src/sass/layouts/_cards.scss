@@ -1,7 +1,11 @@
+.cards-container {
+    width: 100%;
+    max-width: 950px;
+}
 .cards {
     width: 100%;
     max-width: 950px;
     padding: 10px;
-    @include flexRow(space-around);
+    @include flexRow(space-between);
     flex-wrap: wrap;
 }

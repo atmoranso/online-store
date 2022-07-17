@@ -1,18 +1,18 @@
-import { Products } from '../common/types';
+import { Filtered, Products } from '../common/types';
 import Observer from './observer';
 
 export default class AppState {
     products: Products;
-    private _productsFiltered: Products;
+    private _filtered: Filtered;
     private _countInCart: number;
-    public onChange = new Observer<Products>();
+    public onChange = new Observer<Filtered>();
     public onChangeCart = new Observer<number>();
-    set productsFiltered(value: Products) {
-        this._productsFiltered = value;
-        this.onChange.emit(this._productsFiltered);
+    set filtered(value: Filtered) {
+        this._filtered = value;
+        this.onChange.emit(this._filtered);
     }
-    get productsFiltered() {
-        return this._productsFiltered;
+    get filtered() {
+        return this._filtered;
     }
     set countInCart(value: number) {
         this._countInCart = value;
@@ -24,7 +24,11 @@ export default class AppState {
 
     constructor(products: Products) {
         this.products = products;
-        this._productsFiltered = products;
+        this._filtered = {
+            brand: [],
+            memory: [],
+            hdd: [],
+        };
         this._countInCart = 0;
     }
 }
