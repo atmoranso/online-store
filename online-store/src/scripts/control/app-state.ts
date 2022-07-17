@@ -28,6 +28,7 @@ export default class AppState {
             brand: [],
             memory: [],
             hdd: [],
+            popular: [],
         };
         this._countInCart = 0;
     }

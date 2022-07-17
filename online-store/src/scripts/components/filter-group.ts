@@ -11,6 +11,11 @@ export class FilterGroup extends ElementTemplate {
         if (filterData.filterName === 'popular') {
             this.node.classList.add('filter_popular');
             const filterElement = new Filter(this.node, '', filterData.filterName);
+            filterElement.node.addEventListener('click', () => {
+                filterElement.isSelected = filterElement.isSelected ? false : true;
+
+                filterElement.filterIt('yes', state);
+            });
             this.filterValues.push(filterElement);
         } else {
             filterData.values.forEach((filterValue) => {
