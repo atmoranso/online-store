@@ -3,9 +3,10 @@ import ElementTemplate from '../view/element-template';
 import { FilterSlider } from './filter-slider';
 import { FilterSort } from './filter-sort';
 import Filters from './filters';
+import { Search } from './search';
 
 export class ResetFilters extends ElementTemplate {
-    constructor(parentNode: HTMLElement, filters: Filters, state: AppState) {
+    constructor(parentNode: HTMLElement, search: Search, filters: Filters, state: AppState) {
         super(parentNode, 'div', 'filter__resetFilters', 'Reset Filters');
 
         this.node.addEventListener('click', () => {
@@ -36,6 +37,7 @@ export class ResetFilters extends ElementTemplate {
                     }
                 });
             });
+            search.inputBox.node.value = '';
         });
     }
 }

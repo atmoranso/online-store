@@ -29,7 +29,7 @@ export default class App {
         const search = new Search(this.filtersContainer, state);
         const filters = new Filters(this.filtersContainer, filtersData, state);
         const cards = new Cards(this.cardsContainer, state);
-        new ResetFilters(this.filtersContainer, filters, state);
+        new ResetFilters(this.filtersContainer, search, filters, state);
 
         state.mainNode = cards.node;
         state.onChange.add((filtered: Filtered) => {
