@@ -2,6 +2,7 @@ import { FilterData } from '../common/filters-data';
 import AppState from '../control/app-state';
 import ElementTemplate from '../view/element-template';
 import { Filter } from './filter';
+import { FilterSlider } from './filter-slider';
 
 export class FilterGroup extends ElementTemplate {
     filterValues: ElementTemplate[] = [];
@@ -18,14 +19,14 @@ export class FilterGroup extends ElementTemplate {
             });
             this.filterValues.push(filterElement);
         } else if (filterData.filterName === 'count') {
-            if (typeof filterData.values !== 'string') throw new Error('');
+            const filterElement = new FilterSlider(this.node, filterData.values, filterData.filterName, state);
 
-            const filterElement = new Filter(this.node, filterData.values, filterData.filterName);
+            this.filterValues.push(filterElement);
+        } else if (filterData.filterName === 'year') {
+            const filterElement = new FilterSlider(this.node, filterData.values, filterData.filterName, state);
 
             this.filterValues.push(filterElement);
         } else {
-            if (typeof filterData.values === 'string') throw new Error('');
-
             filterData.values.forEach((filterValue) => {
                 const filterElement = new Filter(this.node, filterValue, filterData.filterName);
                 filterElement.node.addEventListener('click', () => {

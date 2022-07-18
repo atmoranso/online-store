@@ -2,7 +2,7 @@ import { Popular } from './types';
 export type FilterData = {
     filterName: string;
     title: string;
-    values: string[] | string;
+    values: string[];
 };
 export const filtersData: FilterData[] = [
     {
@@ -28,6 +28,11 @@ export const filtersData: FilterData[] = [
     {
         filterName: 'count',
         title: 'Quantity',
-        values: 'range',
+        values: ['1', '12'],
+    },
+    {
+        filterName: 'year',
+        title: 'Year',
+        values: ['2017', '2022'],
     },
 ];

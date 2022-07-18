@@ -29,6 +29,8 @@ export default class AppState {
             memory: [],
             hdd: [],
             popular: [],
+            count: ['1', '12'],
+            year: ['2017', '2022'],
         };
         this._countInCart = 0;
     }

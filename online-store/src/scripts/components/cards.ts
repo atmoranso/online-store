@@ -23,6 +23,18 @@ export default class Cards extends ElementTemplate {
             let filterRows = 0;
 
             for (const filterName in filtered) {
+                if (filterName === 'count' || filterName === 'year') {
+                    filterRows++;
+                    if (
+                        product[filterName as keyof Product] >= +filtered[filterName][0] &&
+                        product[filterName as keyof Product] <= +filtered[filterName][1]
+                    ) {
+                        isAnyFilter = true;
+                        isInFilter.push(true);
+                    }
+                    continue;
+                }
+
                 if (filtered[filterName].length > 0) {
                     filterRows++;
                     for (const filterElement of filtered[filterName]) {

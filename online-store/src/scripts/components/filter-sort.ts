@@ -1,11 +1,11 @@
 import AppState from '../control/app-state';
 import ElementTemplate from '../view/element-template';
 
-export class Filter extends ElementTemplate {
+export class FilterSort extends ElementTemplate {
     filterName: string;
     isSelected = false;
     constructor(parentNode: HTMLElement, filterValue = '', filterName: string) {
-        super(parentNode, 'div', 'filter__item', filterValue);
+        super(parentNode, 'select ', 'filter__select', filterValue);
         this.filterName = filterName;
     }
 
