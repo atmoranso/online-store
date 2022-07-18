@@ -4,6 +4,7 @@ import Observer from './observer';
 export default class AppState {
     mainNode: HTMLElement;
     products: Products;
+    resetFilters = false;
     private _filtered: Filtered;
     private _countInCart: number;
     private _searchString: string;

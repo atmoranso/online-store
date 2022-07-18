@@ -6,7 +6,7 @@ import { FilterSlider } from './filter-slider';
 import { FilterSort } from './filter-sort';
 
 export class FilterGroup extends ElementTemplate {
-    filterValues: ElementTemplate[] = [];
+    filterValues: (Filter | FilterSort | FilterSlider)[] = [];
     constructor(parentNode: HTMLElement, filterData: FilterData, state: AppState) {
         super(parentNode, 'div', 'filter');
         new ElementTemplate(this.node, 'h3', 'filter__title', filterData.title + ':');
@@ -15,7 +15,7 @@ export class FilterGroup extends ElementTemplate {
             const filterElement = new Filter(this.node, '', filterData.filterName);
             filterElement.node.addEventListener('click', () => {
                 filterElement.isSelected = filterElement.isSelected ? false : true;
-
+                this.filterValues.push(filterElement);
                 filterElement.filterIt('yes', state);
             });
             this.filterValues.push(filterElement);
@@ -29,6 +29,7 @@ export class FilterGroup extends ElementTemplate {
             this.filterValues.push(filterElement);
         } else if (filterData.filterName === 'sort') {
             const filterElement = new FilterSort(this.node, filterData.values, filterData.filterName, state);
+            this.filterValues.push(filterElement);
         } else {
             filterData.values.forEach((filterValue) => {
                 const filterElement = new Filter(this.node, filterValue, filterData.filterName);

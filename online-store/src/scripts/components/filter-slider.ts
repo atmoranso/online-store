@@ -8,24 +8,24 @@ export class FilterSlider extends ElementTemplate {
     valueMin: number;
     valueMax: number;
     state: AppState;
+    slider: noUiSlider.target;
     constructor(parentNode: HTMLElement, filterValue: string[], filterName: string, state: AppState) {
         super(parentNode, 'div', 'filter__slider');
         this.valueMin = +filterValue[0];
         this.valueMax = +filterValue[1];
         this.state = state;
         this.filterName = filterName;
+        this.slider = this.node;
         this.buildSlider();
     }
     buildSlider() {
-        // this.node.id = 'slider';
-        const slider: noUiSlider.target = this.node;
         const valueBlock = new ElementTemplate(null, 'div', 'filter__slider-value value');
         this.node.after(valueBlock.node);
 
         const valueMinElement = new ElementTemplate(valueBlock.node, 'div', 'value__min').node;
         const valueMaxElement = new ElementTemplate(valueBlock.node, 'div', 'value__max').node;
 
-        noUiSlider.create(slider, {
+        noUiSlider.create(this.slider, {
             start: [this.valueMin, this.valueMax],
             connect: true,
             range: {
@@ -37,7 +37,7 @@ export class FilterSlider extends ElementTemplate {
         valueMinElement.innerText = '' + Math.round(this.valueMin);
         valueMaxElement.innerText = '' + Math.round(this.valueMax);
 
-        this.onSliderUpdate(slider, valueMinElement, valueMaxElement, this.filterName, this.filterIt);
+        this.onSliderUpdate(this.slider, valueMinElement, valueMaxElement, this.filterName, this.filterIt);
     }
     onSliderUpdate(
         slider: noUiSlider.target,

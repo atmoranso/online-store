@@ -19,6 +19,22 @@ export default class Cards extends ElementTemplate {
         this.isSearching = false;
     }
     update(filtered: Filtered, state: AppState) {
+        console.log(filtered);
+        console.log(state.resetFilters);
+
+        if (state.resetFilters) {
+            this.cardsArr.forEach((card) => {
+                card.node.classList.add('visible');
+            });
+            this.visibleCards = this.cardsArr;
+            state.resetFilters = false;
+
+            state.mainNode.innerHTML = '';
+            this.visibleCards.forEach((element) => {
+                state.mainNode.append(element.node);
+            });
+            return;
+        }
         let isAnyFilter = false;
 
         const newDataArr: number[] = [];
