@@ -17,7 +17,7 @@ export class Card extends ElementTemplate {
         <div class="card__mem">Memory: ${cardData.memory}</div>
         <div class="card__hdd">HDD: ${cardData.hdd}</div>
         <div class="card__favorite">Popular: ${cardData.popular}</div>
-        <div class="card__cart"><img src="../../assets/svg/cart.svg"></div>`;
+        <div class="card__cart"><img src="./assets/svg/cart.svg"></div>`;
         this.node.addEventListener('click', this.cardClickHandler.bind(this));
     }
     cardClickHandler() {
