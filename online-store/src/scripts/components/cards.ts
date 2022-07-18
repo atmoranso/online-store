@@ -6,12 +6,17 @@ import { Card } from './card';
 export default class Cards extends ElementTemplate {
     private cardsArr: Card[] = [];
     private visibleCards: Card[] = [];
+    private searchedCards: Card[] = [];
+    private isSearching: boolean;
     constructor(parentNode: HTMLElement, state: AppState) {
         super(parentNode, 'div', 'cards');
         state.products.forEach((item: Product) => {
             const card = new Card(this.node, item, state);
             this.cardsArr.push(card);
+            this.visibleCards = this.cardsArr;
+            this.searchedCards = this.visibleCards;
         });
+        this.isSearching = false;
     }
     update(filtered: Filtered, state: AppState) {
         let isAnyFilter = false;
@@ -57,6 +62,7 @@ export default class Cards extends ElementTemplate {
             } else card.node.classList.remove('visible');
         });
         this.sort(filtered, state);
+        if (this.isSearching) this.search(state);
     }
     sort(filtered: Filtered, state: AppState) {
         this.visibleCards.sort((a, b) => {
@@ -97,8 +103,20 @@ export default class Cards extends ElementTemplate {
             state.mainNode.append(element.node);
         });
     }
-    search(filtered: Filtered, state: AppState){
-
-
+    search(state: AppState) {
+        console.log(this.visibleCards[0]);
+        if (state.searchString !== '') {
+            this.isSearching = true;
+            this.searchedCards = this.visibleCards.filter((card) =>
+                state.products[card.id - 1].title.toUpperCase().includes(state.searchString.toUpperCase())
+            );
+        } else {
+            this.isSearching = false;
+            this.searchedCards = this.visibleCards;
+        }
+        state.mainNode.innerHTML = '';
+        this.searchedCards.forEach((element) => {
+            state.mainNode.append(element.node);
+        });
     }
 }

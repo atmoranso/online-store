@@ -6,7 +6,9 @@ export default class AppState {
     products: Products;
     private _filtered: Filtered;
     private _countInCart: number;
+    private _searchString: string;
     public onChange = new Observer<Filtered>();
+    public onSearch = new Observer<string>();
     public onChangeCart = new Observer<number>();
     set filtered(value: Filtered) {
         this._filtered = value;
@@ -14,6 +16,13 @@ export default class AppState {
     }
     get filtered() {
         return this._filtered;
+    }
+    set searchString(value: string) {
+        this._searchString = value;
+        this.onSearch.emit(this._searchString);
+    }
+    get searchString() {
+        return this._searchString;
     }
     set countInCart(value: number) {
         this._countInCart = value;
@@ -36,5 +45,6 @@ export default class AppState {
             sort: ['titleAZ'],
         };
         this._countInCart = 0;
+        this._searchString = '';
     }
 }

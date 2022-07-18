@@ -4,6 +4,7 @@ import { products } from './common/products';
 import { filtersData } from './common/filters-data';
 import Filters from './components/filters';
 import { Filtered } from './common/types';
+import { Search } from './components/search';
 
 export default class App {
     cardsContainer: HTMLElement;
@@ -24,6 +25,7 @@ export default class App {
 
     start() {
         const state = new AppState(products, this.cardsContainer);
+        const search = new Search(this.filtersContainer, state);
         new Filters(this.filtersContainer, filtersData, state);
         const cards = new Cards(this.cardsContainer, state);
         state.mainNode = cards.node;
@@ -32,6 +34,9 @@ export default class App {
         });
         state.onChangeCart.add((countInCart: number) => {
             this.cartCountContainer.textContent = countInCart.toString();
+        });
+        state.onSearch.add((searchValue: string) => {
+            cards.search(state);
         });
     }
 }
