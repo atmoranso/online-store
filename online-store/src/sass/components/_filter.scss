@@ -34,3 +34,28 @@
 .filter__title {
     @include font(18px, $color-dark);
 }
+.slider {
+    position: relative;
+    pointer-events: none;
+}
+.slider__1 {
+    height: 2em;
+    display: block;
+    margin: 0;
+}
+.slider__2 {
+    height: 2em;
+    display: block;
+    margin: 0;
+    margin-top: -2em;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    pointer-events: all;
+}
+input[type="range"]::-moz-range-thumb {
+    pointer-events: all;
+}
+input[type="range"]::-ms-thumb {
+    pointer-events: all;
+}

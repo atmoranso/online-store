@@ -2,7 +2,7 @@ import { Popular } from './types';
 export type FilterData = {
     filterName: string;
     title: string;
-    values: string[];
+    values: string[] | string;
 };
 export const filtersData: FilterData[] = [
     {
@@ -24,5 +24,10 @@ export const filtersData: FilterData[] = [
         filterName: 'popular',
         title: 'Popular',
         values: [Popular.Yes, Popular.No],
+    },
+    {
+        filterName: 'count',
+        title: 'Quantity',
+        values: 'range',
     },
 ];

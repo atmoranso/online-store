@@ -17,7 +17,15 @@ export class FilterGroup extends ElementTemplate {
                 filterElement.filterIt('yes', state);
             });
             this.filterValues.push(filterElement);
+        } else if (filterData.filterName === 'count') {
+            if (typeof filterData.values !== 'string') throw new Error('');
+
+            const filterElement = new Filter(this.node, filterData.values, filterData.filterName);
+
+            this.filterValues.push(filterElement);
         } else {
+            if (typeof filterData.values === 'string') throw new Error('');
+
             filterData.values.forEach((filterValue) => {
                 const filterElement = new Filter(this.node, filterValue, filterData.filterName);
                 filterElement.node.addEventListener('click', () => {
