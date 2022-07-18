@@ -34,6 +34,8 @@ export class FilterSlider extends ElementTemplate {
             },
             step: 1,
         });
+        valueMinElement.innerText = '' + Math.round(this.valueMin);
+        valueMaxElement.innerText = '' + Math.round(this.valueMax);
 
         this.onSliderUpdate(slider, valueMinElement, valueMaxElement, this.filterName, this.filterIt);
     }
@@ -53,10 +55,9 @@ export class FilterSlider extends ElementTemplate {
             } else {
                 valueMinElement.innerHTML = '' + Math.round(+values[handle]);
             }
-
-            document.addEventListener('mouseup', () => {
-                callback([valueMinElement.innerHTML, valueMaxElement.innerHTML], filterName, state);
-            });
+        });
+        slider.noUiSlider.on('end', function (values, handle) {
+            callback([valueMinElement.innerHTML, valueMaxElement.innerHTML], filterName, state);
         });
     }
     filterIt(filterValue: string[], filterName: string, state: AppState) {

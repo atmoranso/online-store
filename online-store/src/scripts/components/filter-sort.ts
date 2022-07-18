@@ -1,35 +1,40 @@
+import { Sorts } from '../common/filters-data';
 import AppState from '../control/app-state';
 import ElementTemplate from '../view/element-template';
 
-export class FilterSort extends ElementTemplate {
+export class FilterSort extends ElementTemplate<HTMLSelectElement> {
     filterName: string;
     isSelected = false;
-    constructor(parentNode: HTMLElement, filterValue = '', filterName: string) {
-        super(parentNode, 'select ', 'filter__select', filterValue);
+    state: AppState;
+    filterValues: { name: string; elem: ElementTemplate<HTMLOptionElement> }[] = [];
+    constructor(parentNode: HTMLElement, filterValue: string[], filterName: string, state: AppState) {
+        super(parentNode, 'select', 'filter__select');
+        this.state = state;
         this.filterName = filterName;
+        this.node.name = filterName;
+        filterValue.forEach((value) => {
+            this.filterValues.push({
+                name: value,
+                elem: new ElementTemplate<HTMLOptionElement>(
+                    this.node,
+                    'option',
+                    '',
+                    Sorts[value as keyof typeof Sorts]
+                ),
+            });
+
+            this.filterValues[0].elem.node.defaultSelected = true;
+        });
+        this.node.addEventListener('change', () => {
+            this.filterIt([this.filterValues[this.node.selectedIndex].name], this.filterName, this.state);
+        });
     }
 
-    filterIt(filterValue: string, state: AppState) {
-        const filterIndexValue = state.filtered[this.filterName].indexOf(filterValue, 0);
-
-        if (this.isSelected) {
-            this.node.classList.add('selected');
-            if (filterIndexValue === -1) {
-                state.filtered[this.filterName].push(filterValue);
-                state.filtered = {
-                    ...state.filtered,
-                    [this.filterName]: state.filtered[this.filterName],
-                };
-            }
-        } else {
-            this.node.classList.remove('selected');
-            if (filterIndexValue > -1) {
-                state.filtered[this.filterName].splice(filterIndexValue, 1);
-                state.filtered = {
-                    ...state.filtered,
-                    [this.filterName]: state.filtered[this.filterName],
-                };
-            }
-        }
+    filterIt(filterValue: string[], filterName: string, state: AppState) {
+        state.filtered[filterName] = filterValue;
+        state.filtered = {
+            ...state.filtered,
+            [filterName]: state.filtered[filterName],
+        };
     }
 }

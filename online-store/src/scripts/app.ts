@@ -23,9 +23,10 @@ export default class App {
     }
 
     start() {
-        const state = new AppState(products);
+        const state = new AppState(products, this.cardsContainer);
         new Filters(this.filtersContainer, filtersData, state);
         const cards = new Cards(this.cardsContainer, state);
+        state.mainNode = cards.node;
         state.onChange.add((filtered: Filtered) => {
             cards.update(filtered, state);
         });

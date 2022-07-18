@@ -4,6 +4,14 @@ export type FilterData = {
     title: string;
     values: string[];
 };
+export enum Sorts {
+    TitleAZ = 'Title: A-z',
+    TitleZA = 'Title: Z-a',
+    YearMinMax = 'Year: min-max',
+    YearMaxMin = 'Year: max-min',
+    CountMinMax = 'Quantity: min-max',
+    CountMaxMin = 'Quantity: max-min',
+}
 export const filtersData: FilterData[] = [
     {
         filterName: 'brand',
@@ -34,5 +42,10 @@ export const filtersData: FilterData[] = [
         filterName: 'year',
         title: 'Year',
         values: ['2017', '2022'],
+    },
+    {
+        filterName: 'sort',
+        title: 'Sort',
+        values: ['TitleAZ', 'TitleZA', 'YearMinMax', 'YearMaxMin', 'CountMinMax', 'CountMaxMin'],
     },
 ];

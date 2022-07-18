@@ -5,6 +5,7 @@ import { Card } from './card';
 
 export default class Cards extends ElementTemplate {
     private cardsArr: Card[] = [];
+    private visibleCards: Card[] = [];
     constructor(parentNode: HTMLElement, state: AppState) {
         super(parentNode, 'div', 'cards');
         state.products.forEach((item: Product) => {
@@ -15,14 +16,15 @@ export default class Cards extends ElementTemplate {
     update(filtered: Filtered, state: AppState) {
         let isAnyFilter = false;
 
-        console.log(filtered);
-
         const newDataArr: number[] = [];
         state.products.forEach((product) => {
             const isInFilter: boolean[] = [];
             let filterRows = 0;
 
             for (const filterName in filtered) {
+                if (filterName === 'sort') {
+                    continue;
+                }
                 if (filterName === 'count' || filterName === 'year') {
                     filterRows++;
                     if (
@@ -48,9 +50,55 @@ export default class Cards extends ElementTemplate {
 
             if (isInFilter.length === filterRows) newDataArr.push(product.id);
         });
-        this.cardsArr.forEach((card) => {
-            if (newDataArr.includes(card.id, 0) || !isAnyFilter) card.node.classList.add('visible');
-            else card.node.classList.remove('visible');
+        this.visibleCards = this.cardsArr.filter((card) => {
+            if (newDataArr.includes(card.id, 0) || !isAnyFilter) {
+                card.node.classList.add('visible');
+                return card;
+            } else card.node.classList.remove('visible');
         });
+        this.sort(filtered, state);
+    }
+    sort(filtered: Filtered, state: AppState) {
+        this.visibleCards.sort((a, b) => {
+            if (filtered.sort[0] === 'TitleAZ') {
+                if (state.products[a.id - 1].title > state.products[b.id - 1].title) return 1;
+                if (state.products[a.id - 1].title == state.products[b.id - 1].title) return 0;
+                if (state.products[a.id - 1].title < state.products[b.id - 1].title) return -1;
+            }
+            if (filtered.sort[0] === 'TitleZA') {
+                if (state.products[a.id - 1].title > state.products[b.id - 1].title) return -1;
+                if (state.products[a.id - 1].title == state.products[b.id - 1].title) return 0;
+                if (state.products[a.id - 1].title < state.products[b.id - 1].title) return 1;
+            }
+            if (filtered.sort[0] === 'YearMinMax') {
+                if (state.products[a.id - 1].year > state.products[b.id - 1].year) return 1;
+                if (state.products[a.id - 1].year == state.products[b.id - 1].year) return 0;
+                if (state.products[a.id - 1].year < state.products[b.id - 1].year) return -1;
+            }
+            if (filtered.sort[0] === 'YearMaxMin') {
+                if (state.products[a.id - 1].year > state.products[b.id - 1].year) return -1;
+                if (state.products[a.id - 1].year == state.products[b.id - 1].year) return 0;
+                if (state.products[a.id - 1].year < state.products[b.id - 1].year) return 1;
+            }
+            if (filtered.sort[0] === 'CountMinMax') {
+                if (state.products[a.id - 1].count > state.products[b.id - 1].count) return 1;
+                if (state.products[a.id - 1].count == state.products[b.id - 1].count) return 0;
+                if (state.products[a.id - 1].count < state.products[b.id - 1].count) return -1;
+            }
+            if (filtered.sort[0] === 'CountMaxMin') {
+                if (state.products[a.id - 1].count > state.products[b.id - 1].count) return -1;
+                if (state.products[a.id - 1].count == state.products[b.id - 1].count) return 0;
+                if (state.products[a.id - 1].count < state.products[b.id - 1].count) return 1;
+            }
+            return 0;
+        });
+        state.mainNode.innerHTML = '';
+        this.visibleCards.forEach((element) => {
+            state.mainNode.append(element.node);
+        });
+    }
+    search(filtered: Filtered, state: AppState){
+
+
     }
 }

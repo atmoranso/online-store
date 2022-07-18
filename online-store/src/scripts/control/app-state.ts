@@ -2,6 +2,7 @@ import { Filtered, Products } from '../common/types';
 import Observer from './observer';
 
 export default class AppState {
+    mainNode: HTMLElement;
     products: Products;
     private _filtered: Filtered;
     private _countInCart: number;
@@ -22,7 +23,8 @@ export default class AppState {
         return this._countInCart;
     }
 
-    constructor(products: Products) {
+    constructor(products: Products, mainNode: HTMLElement) {
+        this.mainNode = mainNode;
         this.products = products;
         this._filtered = {
             brand: [],
@@ -31,6 +33,7 @@ export default class AppState {
             popular: [],
             count: ['1', '12'],
             year: ['2017', '2022'],
+            sort: ['titleAZ'],
         };
         this._countInCart = 0;
     }

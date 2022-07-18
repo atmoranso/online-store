@@ -30,16 +30,4 @@ export class Card extends ElementTemplate {
             this.state.countInCart++;
         }
     }
-    // update(cardData: Product) {
-    //     this.node.innerHTML = `
-    //     <h2 class="card__title">${cardData.title}</h2>
-    //     <img class="card__img" src="./assets/img/products/${cardData.id}.png" alt="${cardData.title}">
-    //     <div class="card__count">Quantity: ${cardData.count}</div>
-    //     <div class="card__brand">Brand: ${cardData.brand}</div>
-    //     <div class="card__year">Year: ${cardData.year}</div>
-    //     <div class="card__mem">Memory: ${cardData.memory} Gb</div>
-    //     <div class="card__hdd">HDD: ${cardData.hdd} Gb</div>
-    //     <div class="card__favorite">Popular: ${cardData.popular}</div>
-    //     <div class="card__cart"><img src="../../assets/svg/cart.svg"></div>`;
-    // }
 }

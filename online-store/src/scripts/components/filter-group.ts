@@ -3,6 +3,7 @@ import AppState from '../control/app-state';
 import ElementTemplate from '../view/element-template';
 import { Filter } from './filter';
 import { FilterSlider } from './filter-slider';
+import { FilterSort } from './filter-sort';
 
 export class FilterGroup extends ElementTemplate {
     filterValues: ElementTemplate[] = [];
@@ -26,6 +27,8 @@ export class FilterGroup extends ElementTemplate {
             const filterElement = new FilterSlider(this.node, filterData.values, filterData.filterName, state);
 
             this.filterValues.push(filterElement);
+        } else if (filterData.filterName === 'sort') {
+            const filterElement = new FilterSort(this.node, filterData.values, filterData.filterName, state);
         } else {
             filterData.values.forEach((filterValue) => {
                 const filterElement = new Filter(this.node, filterValue, filterData.filterName);
