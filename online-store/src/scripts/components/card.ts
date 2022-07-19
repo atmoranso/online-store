@@ -20,7 +20,8 @@ export class Card extends ElementTemplate {
         <div class="card__cart"><img src="./assets/svg/cart.svg"></div>`;
         this.node.addEventListener('click', this.cardClickHandler.bind(this));
     }
-    cardClickHandler() {
+    cardClickHandler(e: Event) {
+        e.preventDefault();
         this.node.classList.toggle('in-cart');
         if (this.inCart) {
             this.inCart = false;
@@ -28,6 +29,17 @@ export class Card extends ElementTemplate {
         } else {
             this.inCart = true;
             this.state.countInCart++;
+            if (this.state.countInCart > 20) {
+                this.state.countInCart = 20;
+                this.inCart = false;
+                this.node.classList.toggle('in-cart');
+                const modal = new ElementTemplate(document.body, 'div', 'modal', 'Sorry there are no free slots :(');
+                document.body.classList.add('body_modal');
+                setTimeout(() => {
+                    modal.delete();
+                    document.body.classList.remove('body_modal');
+                }, 2000);
+            }
         }
     }
 }

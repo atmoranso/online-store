@@ -11,6 +11,13 @@
 body {
     margin: 0;
     @include font(16px, $color-dark);
+    &::before {
+        content: "";
+        display: none;
+        width: 100%;
+        height: 100%;
+        z-index: -50;
+    }
 }
 .container {
     width: 100%;
