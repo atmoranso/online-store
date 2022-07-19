@@ -9,10 +9,10 @@ export default class Cards extends ElementTemplate {
     private visibleCards: Card[] = [];
     private searchedCards: Card[] = [];
     private isSearching: boolean;
-    constructor(parentNode: HTMLElement, dataStorage: DataStorage, state: AppState) {
+    constructor(parentNode: HTMLElement, dataStorage: DataStorage, cartCountContainer: HTMLElement, state: AppState) {
         super(parentNode, 'div', 'cards');
         state.products.forEach((item: Product) => {
-            const card = new Card(null, item, state);
+            const card = new Card(null, item, cartCountContainer, state);
             this.cardsArr.push(card);
             this.visibleCards = this.cardsArr;
             this.searchedCards = this.visibleCards;

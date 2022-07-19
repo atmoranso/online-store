@@ -7,6 +7,7 @@ export default class AppState {
     resetFilters = false;
     private _filtered: Filtered;
     private _countInCart: number;
+    inCartMap: Record<string, boolean> = {};
     private _searchString: string;
     public onChange = new Observer<Filtered>();
     public onSearch = new Observer<string>();
