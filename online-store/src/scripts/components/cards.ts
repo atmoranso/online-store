@@ -123,7 +123,6 @@ export default class Cards extends ElementTemplate {
         }
     }
     search(state: AppState) {
-        console.log(this.visibleCards[0]);
         if (state.searchString !== '') {
             this.isSearching = true;
             this.searchedCards = this.visibleCards.filter((card) =>
