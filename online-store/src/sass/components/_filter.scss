@@ -64,14 +64,14 @@
 .filter__slider-value {
     @include flexRow(space-between);
 }
-.filter__resetFilters {
+.filter__resetFilters,
+.filter__resetSettings {
     width: fit-content;
-    margin-top: 15px;
+    margin-top: 25px;
     padding: 10px 30px 10px 30px;
     border: 1px solid;
     border-radius: 50px;
     border-color: $color-accent;
-    align-self: center;
     transition: 0.3s;
     &:hover {
         cursor: pointer;

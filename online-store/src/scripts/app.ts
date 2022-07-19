@@ -7,6 +7,7 @@ import { Filtered } from './common/types';
 import { Search } from './components/search';
 import { ResetFilters } from './components/reset-filters';
 import DataStorage from './control/data-storage';
+import { ResetSettings } from './components/reset-settings';
 
 export default class App {
     cardsContainer: HTMLElement;
@@ -33,6 +34,7 @@ export default class App {
         const filters = new Filters(this.filtersContainer, filtersData, state);
         const cards = new Cards(this.cardsContainer, dataStorage, state);
         new ResetFilters(this.filtersContainer, search, filters, state);
+        new ResetSettings(this.filtersContainer);
 
         state.mainNode = cards.node;
         state.onChange.add((filtered: Filtered) => {
