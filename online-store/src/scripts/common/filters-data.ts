@@ -5,6 +5,7 @@ export type FilterData = {
     values: string[];
 };
 export enum Sorts {
+    None = '',
     TitleAZ = 'Title: A-z',
     TitleZA = 'Title: Z-a',
     YearMinMax = 'Year: min-max',
@@ -46,6 +47,6 @@ export const filtersData: FilterData[] = [
     {
         filterName: 'sort',
         title: 'Sort',
-        values: ['TitleAZ', 'TitleZA', 'YearMinMax', 'YearMaxMin', 'CountMinMax', 'CountMaxMin'],
+        values: ['None', 'TitleAZ', 'TitleZA', 'YearMinMax', 'YearMaxMin', 'CountMinMax', 'CountMaxMin'],
     },
 ];

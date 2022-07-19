@@ -4,8 +4,17 @@ import ElementTemplate from '../view/element-template';
 export class Filter extends ElementTemplate {
     filterName: string;
     isSelected = false;
-    constructor(parentNode: HTMLElement, filterValue = '', filterName: string) {
+    constructor(parentNode: HTMLElement, filterValue = '', filterName: string, state: AppState) {
         super(parentNode, 'div', 'filter__item', filterValue);
+
+        if (state.filtered[filterName].length > 0) {
+            for (const filterItem of state.filtered[filterName]) {
+                if (filterItem === filterValue) {
+                    this.node.classList.add('selected');
+                    this.isSelected = true;
+                }
+            }
+        }
         this.filterName = filterName;
     }
 

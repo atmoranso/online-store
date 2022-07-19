@@ -1,5 +1,6 @@
 import { Filtered, Product } from '../common/types';
 import AppState from '../control/app-state';
+import DataStorage from '../control/data-storage';
 import ElementTemplate from '../view/element-template';
 import { Card } from './card';
 
@@ -8,17 +9,20 @@ export default class Cards extends ElementTemplate {
     private visibleCards: Card[] = [];
     private searchedCards: Card[] = [];
     private isSearching: boolean;
-    constructor(parentNode: HTMLElement, state: AppState) {
+    constructor(parentNode: HTMLElement, dataStorage: DataStorage, state: AppState) {
         super(parentNode, 'div', 'cards');
         state.products.forEach((item: Product) => {
-            const card = new Card(this.node, item, state);
+            const card = new Card(null, item, state);
             this.cardsArr.push(card);
             this.visibleCards = this.cardsArr;
             this.searchedCards = this.visibleCards;
         });
         this.isSearching = false;
+        state.mainNode = this.node;
+
+        this.update(state.filtered, dataStorage, state);
     }
-    update(filtered: Filtered, state: AppState) {
+    update(filtered: Filtered, dataStorage: DataStorage, state: AppState) {
         if (state.resetFilters) {
             this.cardsArr.forEach((card) => {
                 card.node.classList.add('visible');
@@ -30,8 +34,7 @@ export default class Cards extends ElementTemplate {
             this.visibleCards.forEach((element) => {
                 state.mainNode.append(element.node);
             });
-            this.sort(filtered, state);
-
+            this.sort(filtered, dataStorage, state);
             return;
         }
         let isAnyFilter = false;
@@ -77,10 +80,10 @@ export default class Cards extends ElementTemplate {
             } else card.node.classList.remove('visible');
         });
 
-        this.sort(filtered, state);
+        this.sort(filtered, dataStorage, state);
         if (this.isSearching) this.search(state);
     }
-    sort(filtered: Filtered, state: AppState) {
+    sort(filtered: Filtered, dataStorage: DataStorage, state: AppState) {
         this.visibleCards.sort((a, b) => {
             if (filtered.sort[0] === 'TitleAZ') {
                 if (state.products[a.id - 1].title > state.products[b.id - 1].title) return 1;
@@ -115,12 +118,14 @@ export default class Cards extends ElementTemplate {
             return 0;
         });
         state.mainNode.innerHTML = '';
+
         if (this.visibleCards.length === 0) state.mainNode.textContent = "Can't find anything :(";
         else {
             this.visibleCards.forEach((element) => {
                 state.mainNode.append(element.node);
             });
         }
+        dataStorage.setLocalStorage(state);
     }
     search(state: AppState) {
         if (state.searchString !== '') {

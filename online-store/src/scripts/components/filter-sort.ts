@@ -12,6 +12,7 @@ export class FilterSort extends ElementTemplate<HTMLSelectElement> {
         this.state = state;
         this.filterName = filterName;
         this.node.name = filterName;
+
         filterValue.forEach((value) => {
             this.filterValues.push({
                 name: value,
@@ -25,6 +26,9 @@ export class FilterSort extends ElementTemplate<HTMLSelectElement> {
 
             this.filterValues[0].elem.node.defaultSelected = true;
         });
+        console.log(filterValue);
+
+        this.node.selectedIndex = filterValue.indexOf(state.filtered[filterName][0]);
         this.node.addEventListener('change', () => {
             this.filterIt([this.filterValues[this.node.selectedIndex].name], this.filterName, this.state);
         });

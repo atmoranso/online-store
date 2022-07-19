@@ -5,7 +5,7 @@ import ElementTemplate from '../view/element-template';
 export class Card extends ElementTemplate {
     id: number;
     inCart = false;
-    constructor(parentNode: HTMLElement, cardData: Product, protected state: AppState) {
+    constructor(parentNode: HTMLElement | null, cardData: Product, protected state: AppState) {
         super(parentNode, 'div', 'card visible');
         this.id = cardData.id;
         this.node.innerHTML = `

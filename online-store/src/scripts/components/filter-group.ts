@@ -12,7 +12,7 @@ export class FilterGroup extends ElementTemplate {
         new ElementTemplate(this.node, 'h3', 'filter__title', filterData.title + ':');
         if (filterData.filterName === 'popular') {
             this.node.classList.add('filter_popular');
-            const filterElement = new Filter(this.node, '', filterData.filterName);
+            const filterElement = new Filter(this.node, '', filterData.filterName, state);
             filterElement.node.addEventListener('click', () => {
                 filterElement.isSelected = filterElement.isSelected ? false : true;
                 this.filterValues.push(filterElement);
@@ -32,7 +32,7 @@ export class FilterGroup extends ElementTemplate {
             this.filterValues.push(filterElement);
         } else {
             filterData.values.forEach((filterValue) => {
-                const filterElement = new Filter(this.node, filterValue, filterData.filterName);
+                const filterElement = new Filter(this.node, filterValue, filterData.filterName, state);
                 filterElement.node.addEventListener('click', () => {
                     filterElement.isSelected = filterElement.isSelected ? false : true;
 
