@@ -10,6 +10,10 @@ export class Search extends ElementTemplate {
         new ElementTemplate(this.node, 'h3', 'search__title', 'Search:');
         this.inputBox = new ElementTemplate<HTMLInputElement>(this.node, 'input', 'search__input');
         this.inputBox.node.placeholder = 'Search...';
+        this.inputBox.node.autocomplete = 'off';
+
+        window.onload = () => this.inputBox.node.focus();
+        // this.inputBox.node.focus();
         this.inputBox.node.addEventListener('input', () => {
             this.searchValue = this.inputBox.node.value;
             state.searchString = this.inputBox.node.value;
