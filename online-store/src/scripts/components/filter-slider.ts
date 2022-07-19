@@ -7,10 +7,16 @@ export class FilterSlider extends ElementTemplate {
     isSelected = false;
     valueMin: number;
     valueMax: number;
+    valueMinCurrent: number;
+    valueMaxCurrent: number;
     state: AppState;
     slider: noUiSlider.target;
     constructor(parentNode: HTMLElement, filterValue: string[], filterName: string, state: AppState) {
         super(parentNode, 'div', 'filter__slider');
+
+        this.valueMinCurrent = +state.filtered[filterName][0];
+        this.valueMaxCurrent = +state.filtered[filterName][1];
+
         this.valueMin = +filterValue[0];
         this.valueMax = +filterValue[1];
         this.state = state;
@@ -26,7 +32,7 @@ export class FilterSlider extends ElementTemplate {
         const valueMaxElement = new ElementTemplate(valueBlock.node, 'div', 'value__max').node;
 
         noUiSlider.create(this.slider, {
-            start: [this.valueMin, this.valueMax],
+            start: [this.valueMinCurrent, this.valueMaxCurrent],
             connect: true,
             range: {
                 min: this.valueMin,

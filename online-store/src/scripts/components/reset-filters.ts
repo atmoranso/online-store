@@ -36,6 +36,7 @@ export class ResetFilters extends ElementTemplate {
                 });
             });
             search.inputBox.node.value = '';
+            state.searchString = '';
         });
     }
 }

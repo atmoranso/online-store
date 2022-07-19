@@ -31,12 +31,13 @@ export default class App {
         const dataStorage = new DataStorage(state);
 
         const search = new Search(this.filtersContainer, state);
+
         const filters = new Filters(this.filtersContainer, filtersData, state);
         const cards = new Cards(this.cardsContainer, dataStorage, this.cartCountContainer, state);
 
         new ResetFilters(this.filtersContainer, search, filters, state);
         new ResetSettings(this.filtersContainer);
-
+        if (state.searchString !== '') cards.search(state);
         state.mainNode = cards.node;
         state.onChange.add((filtered: Filtered) => {
             cards.update(filtered, dataStorage, state);
@@ -48,6 +49,7 @@ export default class App {
         });
         state.onSearch.add((searchValue: string) => {
             cards.search(state);
+            dataStorage.setLocalStorage(state);
         });
     }
 }

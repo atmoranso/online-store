@@ -9,7 +9,7 @@ export class Filter extends ElementTemplate {
 
         if (state.filtered[filterName].length > 0) {
             for (const filterItem of state.filtered[filterName]) {
-                if (filterItem === filterValue) {
+                if (filterItem === filterValue || filterItem === 'yes') {
                     this.node.classList.add('selected');
                     this.isSelected = true;
                 }

@@ -26,7 +26,6 @@ export class FilterSort extends ElementTemplate<HTMLSelectElement> {
 
             this.filterValues[0].elem.node.defaultSelected = true;
         });
-        console.log(filterValue);
 
         this.node.selectedIndex = filterValue.indexOf(state.filtered[filterName][0]);
         this.node.addEventListener('change', () => {
