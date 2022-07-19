@@ -19,9 +19,6 @@ export default class Cards extends ElementTemplate {
         this.isSearching = false;
     }
     update(filtered: Filtered, state: AppState) {
-        console.log(filtered);
-        console.log(state.resetFilters);
-
         if (state.resetFilters) {
             this.cardsArr.forEach((card) => {
                 card.node.classList.add('visible');
@@ -115,9 +112,12 @@ export default class Cards extends ElementTemplate {
             return 0;
         });
         state.mainNode.innerHTML = '';
-        this.visibleCards.forEach((element) => {
-            state.mainNode.append(element.node);
-        });
+        if (this.visibleCards.length === 0) state.mainNode.textContent = "Can't find anything :(";
+        else {
+            this.visibleCards.forEach((element) => {
+                state.mainNode.append(element.node);
+            });
+        }
     }
     search(state: AppState) {
         console.log(this.visibleCards[0]);
@@ -131,8 +131,11 @@ export default class Cards extends ElementTemplate {
             this.searchedCards = this.visibleCards;
         }
         state.mainNode.innerHTML = '';
-        this.searchedCards.forEach((element) => {
-            state.mainNode.append(element.node);
-        });
+        if (this.searchedCards.length === 0) state.mainNode.textContent = "Can't find anything :(";
+        else {
+            this.searchedCards.forEach((element) => {
+                state.mainNode.append(element.node);
+            });
+        }
     }
 }

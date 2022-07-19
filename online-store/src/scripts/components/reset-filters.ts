@@ -28,8 +28,6 @@ export class ResetFilters extends ElementTemplate {
                         filter.node.classList.remove('selected');
                     }
                     if (filter instanceof FilterSort) {
-                        console.log('filter.node.selectedIndex');
-
                         filter.node.selectedIndex = 0;
                     }
                     if (filter instanceof FilterSlider) {
