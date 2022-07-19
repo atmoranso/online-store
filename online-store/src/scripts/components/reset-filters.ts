@@ -12,13 +12,13 @@ export class ResetFilters extends ElementTemplate {
         this.node.addEventListener('click', () => {
             state.resetFilters = true;
             state.filtered = {
+                ...state.filtered,
                 brand: [],
                 memory: [],
                 hdd: [],
                 popular: [],
                 count: ['1', '12'],
                 year: ['2017', '2022'],
-                sort: ['titleAZ'],
             };
 
             filters.filterMap.forEach((filterGroup) => {
@@ -27,9 +27,9 @@ export class ResetFilters extends ElementTemplate {
                         filter.isSelected = false;
                         filter.node.classList.remove('selected');
                     }
-                    if (filter instanceof FilterSort) {
-                        filter.node.selectedIndex = 0;
-                    }
+                    // if (filter instanceof FilterSort) {
+                    //     filter.node.selectedIndex = 0;
+                    // }
                     if (filter instanceof FilterSlider) {
                         filter.slider.noUiSlider?.set([filter.valueMin, filter.valueMax]);
                     }

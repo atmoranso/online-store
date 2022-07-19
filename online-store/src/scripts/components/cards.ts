@@ -30,6 +30,8 @@ export default class Cards extends ElementTemplate {
             this.visibleCards.forEach((element) => {
                 state.mainNode.append(element.node);
             });
+            this.sort(filtered, state);
+
             return;
         }
         let isAnyFilter = false;
@@ -74,6 +76,7 @@ export default class Cards extends ElementTemplate {
                 return card;
             } else card.node.classList.remove('visible');
         });
+
         this.sort(filtered, state);
         if (this.isSearching) this.search(state);
     }
