@@ -1,7 +1,6 @@
 import AppState from '../control/app-state';
 import ElementTemplate from '../view/element-template';
 import { FilterSlider } from './filter-slider';
-import { FilterSort } from './filter-sort';
 import Filters from './filters';
 import { Search } from './search';
 

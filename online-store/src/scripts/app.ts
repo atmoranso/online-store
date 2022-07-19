@@ -47,7 +47,7 @@ export default class App {
 
             dataStorage.setLocalStorage(state);
         });
-        state.onSearch.add((searchValue: string) => {
+        state.onSearch.add(() => {
             cards.search(state);
             dataStorage.setLocalStorage(state);
         });

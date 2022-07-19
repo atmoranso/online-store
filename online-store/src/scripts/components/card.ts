@@ -1,6 +1,5 @@
 import { Product } from '../common/types';
 import AppState from '../control/app-state';
-import DataStorage from '../control/data-storage';
 import ElementTemplate from '../view/element-template';
 
 export class Card extends ElementTemplate {

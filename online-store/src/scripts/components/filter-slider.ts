@@ -62,7 +62,7 @@ export class FilterSlider extends ElementTemplate {
                 valueMinElement.innerHTML = '' + Math.round(+values[handle]);
             }
         });
-        slider.noUiSlider.on('end', function (values, handle) {
+        slider.noUiSlider.on('end', function () {
             callback([valueMinElement.innerHTML, valueMaxElement.innerHTML], filterName, state);
         });
     }
