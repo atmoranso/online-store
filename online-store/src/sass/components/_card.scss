@@ -13,12 +13,16 @@
         cursor: pointer;
         border-bottom-right-radius: 15px;
         box-shadow: 6px 6px 10px -2px rgb(0 0 0 / 39%);
-        .card__cart {
-            img {
-                opacity: 1;
-                filter: invert(42%) sepia(8%) saturate(2630%) hue-rotate(167deg) brightness(95%) contrast(86%);
-            }
-        }
+        // .card__cart {
+        //     img {
+        //         opacity: 1;
+        //         filter: invert(42%) sepia(8%) saturate(2630%) hue-rotate(167deg) brightness(95%) contrast(86%);
+        //     }
+        // }
+    }
+    &:active {
+        background-color: #f9f9f9;
+        box-shadow: 6px 6px 16px 4px rgb(0 0 0 / 39%);
     }
     &.in-cart {
         .card__cart {

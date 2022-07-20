@@ -16,8 +16,6 @@ export default class DataStorage {
         state.searchString = this.searchString;
     }
     setLocalStorage(state: AppState) {
-        console.log(state.searchString);
-
         localStorage.setItem('atmodataobj', JSON.stringify(state.filtered));
         localStorage.setItem('atmocarts', JSON.stringify(state.inCartMap));
         localStorage.setItem('atmosearch', state.searchString);
