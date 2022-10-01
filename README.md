@@ -1,2 +1,3 @@
-# atmoranso-JSFE2022Q1
-Private repository for @atmoranso
+# Online-Store
+
+**Online store template with implemented search, filters and add item to the cart ability.**
