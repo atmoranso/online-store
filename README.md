@@ -1,3 +1,3 @@
 # Online-Store
 
-**Online store template with implemented search, filters and add item to the cart ability.**
+An online store template with implemented search, filters and the ability to add products to the cart.
